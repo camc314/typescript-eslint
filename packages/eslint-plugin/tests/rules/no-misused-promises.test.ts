@@ -1092,6 +1092,7 @@ Promise.reject(3).finally(async () => {});
 const f = 'finally';
 Promise.reject(3)[f](async () => {});
     `,
+    `if (process.env.SKIP) { return x; }`,
   ],
 
   invalid: [

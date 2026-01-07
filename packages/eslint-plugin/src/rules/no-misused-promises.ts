@@ -546,10 +546,11 @@ export default createRule<Options, MessageId>({
         while (current && !isFunction(current)) {
           current = current.parent;
         }
-        return nullThrows(current, NullThrowsReasons.MissingParent);
+        return current;
       })();
 
       if (
+        functionNode &&
         functionNode.returnType &&
         !isPossiblyFunctionType(functionNode.returnType)
       ) {
